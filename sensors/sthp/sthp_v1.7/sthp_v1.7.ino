@@ -10,13 +10,13 @@
 #include "DHT.h"
 
 #define DHTPIN 12  // DIGITAL
-#define LDRPIN 5  // ANALOG
+#define LDRPIN 5  // ANALOG ---- PIN 5 FOR FEATHER, PIN 2 FOR MICRO
 #define DHTTYPE DHT22
 
 const String DEVICE_CODE = "sthp";
 
-const String DEVICE_ID   = "feather_6"; // THIS MUST BE DIFFERENT FOR EVERY DEVICE.
-const String REVISION_ID = "v1.4";
+const String DEVICE_ID   = "10"; //  11 NEXT -- THIS MUST BE DIFFERENT FOR EVERY DEVICE.
+const String REVISION_ID = "v1.7";
 
 const String DEVICE   = "device_id";
 const String HUMIDITY = "humidity";
@@ -50,11 +50,14 @@ void loop() {
                         TEMP_C   + "':'" + tempC    + "','" +
                         TEMP_F   + "':'" + tempF    + "'}");
    
-  for(int i =0; i < 10; i++) {
-    while(!Serial) {}
-    digitalWrite(LED_BUILTIN, HIGH);  
-    delay(1000);
-    digitalWrite(LED_BUILTIN, LOW);
-    delay(2000);  
-    }
+//  for(int i =0; i < 59; i++) {
+//    while(!Serial) {}
+//    digitalWrite(LED_BUILTIN, HIGH);  
+//    delay(500);
+//    digitalWrite(LED_BUILTIN, LOW);
+//    delay(500);  
+//    }
+
+  delay(59000);
+
 }
