@@ -9,13 +9,13 @@
 
 #include "DHT.h"
 
-#define DHTPIN 12  // DIGITAL
-#define LDRPIN 5  // ANALOG ---- PIN 5 FOR FEATHER, PIN 2 FOR MICRO
+#define DHTPIN A0  // DIGITAL
+#define LDRPIN A5  // ANALOG ---- PIN 5 FOR FEATHER, PIN 2 FOR MICRO
 #define DHTTYPE DHT22
 
 const String DEVICE_CODE = "sthp";
 
-const String DEVICE_ID   = "10"; //  11 NEXT -- THIS MUST BE DIFFERENT FOR EVERY DEVICE.
+const String DEVICE_ID   = "2"; //  11 NEXT -- THIS MUST BE DIFFERENT FOR EVERY DEVICE.
 const String REVISION_ID = "v1.7";
 
 const String DEVICE   = "device_id";
@@ -29,7 +29,11 @@ DHT dht(DHTPIN, DHTTYPE);
 
 void setup() {
 //  analogReference(EXTERNAL);
-  pinMode(LED_BUILTIN, OUTPUT);
+  pinMode(A3, OUTPUT);
+  digitalWrite(A3, HIGH);
+  
+  pinMode(1, OUTPUT);
+  digitalWrite(1, HIGH);
   dht.begin();
   Serial.begin(9600);
   delay(2000);

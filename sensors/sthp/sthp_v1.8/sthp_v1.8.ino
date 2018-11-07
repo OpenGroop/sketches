@@ -1,22 +1,23 @@
+
 /*
- * STHP v1.4
+ * STHP v1.8
  * 
- * ADAFRUIT FEATHER PROTO BOARD 32U4 (3.3v)
+ * ADAFRUIT ITSY BITSY 32U4 (3.3v)
  * TEMPERATURE/HUMIDITY    DHT22
- * LIGHT INTENSITY (5mm LDR)  
+ * LIGHT INTENSITY (NSL-06S53) (Digikey #NSL-06S53-ND)  
  * 
  */
 
 #include "DHT.h"
 
-#define DHTPIN 12  // DIGITAL
-#define LDRPIN 5  // ANALOG
+#define DHTPIN A0 
+#define LDRPIN A5  
 #define DHTTYPE DHT22
 
 const String DEVICE_CODE = "sthp";
 
-const String DEVICE_ID   = "feather_5"; // THIS MUST BE DIFFERENT FOR EVERY DEVICE.
-const String REVISION_ID = "v1.4.1";
+const String DEVICE_ID   = "afib_12"; //  15 NEXT -- THIS MUST BE DIFFERENT FOR EVERY DEVICE.
+const String REVISION_ID = "v1.8";
 
 const String DEVICE   = "device_id";
 const String HUMIDITY = "humidity";
@@ -28,8 +29,13 @@ const String TEMP_F   = "temp_f";
 DHT dht(DHTPIN, DHTTYPE);
 
 void setup() {
-//  analogReference(EXTERNAL);
-//  pinMode(LED_BUILTIN, OUTPUT);
+
+  pinMode(A3, OUTPUT);
+  digitalWrite(A3, HIGH);
+  
+  pinMode(1, OUTPUT);
+  digitalWrite(1, HIGH);
+  
   dht.begin();
   Serial.begin(9600);
   delay(2000);
@@ -49,5 +55,8 @@ void loop() {
                         LDR      + "':'" + ldr      + "','" +              
                         TEMP_C   + "':'" + tempC    + "','" +
                         TEMP_F   + "':'" + tempF    + "'}");
-   delay(60000);
+   
+
+  delay(60000);
+
 }

@@ -15,7 +15,7 @@
 
 const String DEVICE_CODE = "sthp";
 
-const String DEVICE_ID   = "feather_5"; // THIS MUST BE DIFFERENT FOR EVERY DEVICE.
+const String DEVICE_ID   = "feather_3"; // THIS MUST BE DIFFERENT FOR EVERY DEVICE.
 const String REVISION_ID = "v1.4.1";
 
 const String DEVICE   = "device_id";
